@@ -48,7 +48,7 @@ def train():
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
     #  The Core Training Loop
-    print(f"\n🎬 Starting training for {MODEL_NAME.upper()}...")
+    print(f"\n Starting training for {MODEL_NAME.upper()}...")
     for epoch in range(EPOCHS):
         model.train()
         running_loss = 0.0
