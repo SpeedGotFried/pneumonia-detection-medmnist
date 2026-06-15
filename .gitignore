@@ -20,3 +20,7 @@ __pycache__/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# AI Model weights
+saved_models/
+*.pth
