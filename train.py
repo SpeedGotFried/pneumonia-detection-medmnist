@@ -4,12 +4,12 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
-import medmnist
-from medmnist import INFO
+
+
 
 #  Point Python to your src folder for custom imports
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-from dataset import get_transforms
+from dataset import pneumoniaMNIST, get_transforms
 from models import get_model
 
 def train():
@@ -74,7 +74,7 @@ def train():
             
             # Track statistics
             running_loss += loss.item() * images.size(0)
-            _, predicted = outputs.max(1)
+            predicted = outputs.argmax(outputs,dim=1)
             total += labels.size(0)
             correct += predicted.eq(labels).sum().item()
             
