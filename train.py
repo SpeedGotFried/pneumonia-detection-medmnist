@@ -15,7 +15,8 @@ def train_model(model_name, train_loader, val_loader, device, epochs=5, lr=0.001
     print(f"Starting training for {model_name.upper()}...")
     print(f"==================================================")
     
-    model = get_model(model_name, pretrained=False).to(device)
+    use_pretrained = (model_name != "vanilla")
+    model = get_model(model_name, pretrained=use_pretrained).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
 
@@ -65,7 +66,7 @@ def main():
 
     # Hyperparameters
     BATCH_SIZE = 64
-    EPOCHS = 5
+    EPOCHS = 15
     LEARNING_RATE = 0.001
     MODELS_TO_TRAIN = ["vanilla", "resnet", "inception", "mobilenet"]
 

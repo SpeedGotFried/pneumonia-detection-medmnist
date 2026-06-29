@@ -75,7 +75,8 @@ def get_inception_model(pretrained=True, num_classes=2):
     """
     if pretrained:
         weights = models.GoogLeNet_Weights.DEFAULT
-        model = models.googlenet(weights=weights, aux_logits=False)
+        model = models.googlenet(weights=weights, aux_logits=True)
+        model.aux_logits = False
     else:
         model = models.googlenet(weights=None, aux_logits=False)
         
