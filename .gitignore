@@ -23,4 +23,4 @@ Thumbs.db
 
 # AI Model weights
 saved_models/
-*.pth
+
